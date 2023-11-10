@@ -1,98 +1,101 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Shiba_GetData</title>
-  <h3>Praktikum Algoritma Pemograman II</h3>
-  <h4>Shiba Salsabilla</h4>
-  <h4>164221078</h4>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Praktikum M9 Aura</title>
   <style>
     body {
-      font-family: Montserrat, sans-serif;
-      font-size: 12px;
-      background-color: #eac696;
-      text-align: center;
+      font-family: 'Times New Roman', Times, serif;
+      background-color: #ffc0cb; /* Pink background */
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
     }
 
-    h1 {
+    h2 {
+      color: #553b08;
+    }
+
+    p {
+      color: #553b08;
+    }
+
+    form {
+      margin-top: 10px;
       text-align: center;
-      font-weight: 800;
-      font-size: 300%;
-      color: #3f2305;
     }
 
     label {
-      font-weight: bold;
+      display: block;
+      color: #553b08;
+      margin-bottom: 5px;
     }
 
-    #url {
-      font-family: montserrat, sans-serif;
-      width: 80%;
+    input[type="url"],
+    input[type="text"],
+    input[type="button"] {
+      width: 30%;
       padding: 10px;
-      margin: 10px auto;
+      margin-bottom: 10px;
+      border: 2px solid #553b08;
+      border-radius: 12px;
+      box-sizing: border-box;
+      background-color: #ffc0cb; /* Pink background */
+      color: #553b08;
+      font-family: 'Times New Roman', Times, serif;
       display: block;
-      background-color: #F9E0BB;
-      color: #3f2305 ;
-      border-radius: 10px;
-      border: 3px solid #65451f;
+      margin: auto;
     }
 
-    button {
-      font-family: montserrat, sans-serif;
-      font-weight: bold;
-      display: block;
-      margin: 0 auto;
-      padding: 10px 20px;
-      background-color: #65451f;
+    input[type="button"] {
+      background-color: #75420e;
       color: #fff;
-      border: none;
       cursor: pointer;
-      border-radius: 10px;
+      border-radius: 13px;
+      transition: background-color 0.3s ease; /* Smooth transition */
     }
 
-    button:hover {
-      background-color: #3f2305;
-    }
-
-    #table-container {
-      display: none
+    input[type="button"]:hover {
+      background-color: #553b08; /* Darker pink on hover */
     }
 
     table {
-      font-family: montserrat, sans-serif;
-      width: 100% auto;
-      margin-top: 10px;
-      border-radius: 10px;
-    }
-
-    th, td, tr {
-      border: 1px solid #3f2305;
-      padding: 5px;
-      text-align: center;
-      border-radius: 2px;
-      overflow: hidden;
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px auto;
+      background-color: #fff;
+      box-shadow: 0 2px 4px #553b08;
     }
 
     th {
-      border: 1px solid #3f2305;
-      background-color: #65451f;
-      color: #f9e0bb;
+      background-color: #e9e5cd;
+      color: #553b08;
+      padding: 10px;
+      text-align: left;
+      border-bottom: 2px solid #75420e;
+      border-right: 1px solid #75420e;
     }
 
-    .table-controls {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+    td {
+      padding: 10px;
+      border-bottom: 1px solid #75420e;
+      border-right: 1px solid #75420e;
+    }
+
+    tr:hover {
+      background-color: #bfb998;
+    }
+
+    #table-container {
+      display: none;
+    }
+
+    .pagination {
       margin-top: 10px;
-    }
-
-    .table-controls-left {
-      display: flex;
-      align-items: center;
-    }
-
-    .table-controls-right {
-      display: flex;
-      align-items: center;
     }
   </style>
 </head>
