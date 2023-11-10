@@ -1,109 +1,107 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Praktikum M9 Aura</title>
+  <title>Shiba_GetData</title>
+  <h3>Praktikum Algoritma Pemograman II</h3>
+  <h4>Shiba Salsabilla</h4>
+  <h4>164221078</h4>
   <style>
     body {
-      font-family: 'Times New Roman', Times, serif;
-      background-color: #ffc0cb; /* Pink background */
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-    }
-
-    h2 {
-      color: #553b08;
-    }
-
-    p {
-      color: #553b08;
-    }
-
-    form {
-      margin-top: 10px;
+      font-family: Montserrat, sans-serif;
+      font-size: 12px;
+      background-color: #f8bbd0; /* Warna latar belakang pink */
       text-align: center;
     }
 
+    h1 {
+      text-align: center;
+      font-weight: 800;
+      font-size: 300%;
+      color: #880e4f; /* Warna teks pink tua */
+    }
+
     label {
-      display: block;
-      color: #553b08;
-      margin-bottom: 5px;
+      font-weight: bold;
     }
 
-    input[type="url"],
-    input[type="text"],
-    input[type="button"] {
-      width: 30%;
+    #url {
+      font-family: montserrat, sans-serif;
+      width: 80%;
       padding: 10px;
-      margin-bottom: 10px;
-      border: 2px solid #553b08;
-      border-radius: 12px;
-      box-sizing: border-box;
-      background-color: #ffc0cb; /* Pink background */
-      color: #553b08;
-      font-family: 'Times New Roman', Times, serif;
+      margin: 10px auto;
       display: block;
-      margin: auto;
+      background-color: #f48fb1; /* Warna latar belakang input pink muda */
+      color: #880e4f ; /* Warna teks pink tua */
+      border-radius: 10px;
+      border: 3px solid #ad1457; /* Warna border pink tua */
     }
 
-    input[type="button"] {
-      background-color: #75420e;
+    button {
+      font-family: montserrat, sans-serif;
+      font-weight: bold;
+      display: block;
+      margin: 0 auto;
+      padding: 10px 20px;
+      background-color: #ad1457; /* Warna latar belakang tombol pink tua */
       color: #fff;
+      border: none;
       cursor: pointer;
-      border-radius: 13px;
-      transition: background-color 0.3s ease; /* Smooth transition */
+      border-radius: 10px;
     }
 
-    input[type="button"]:hover {
-      background-color: #553b08; /* Darker pink on hover */
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 20px auto;
-      background-color: #fff;
-      box-shadow: 0 2px 4px #553b08;
-    }
-
-    th {
-      background-color: #e9e5cd;
-      color: #553b08;
-      padding: 10px;
-      text-align: left;
-      border-bottom: 2px solid #75420e;
-      border-right: 1px solid #75420e;
-    }
-
-    td {
-      padding: 10px;
-      border-bottom: 1px solid #75420e;
-      border-right: 1px solid #75420e;
-    }
-
-    tr:hover {
-      background-color: #bfb998;
+    button:hover {
+      background-color: #880e4f; /* Warna latar belakang tombol hover pink tua */
     }
 
     #table-container {
-      display: none;
+      display: none
     }
 
-    .pagination {
+    table {
+      font-family: montserrat, sans-serif;
+      width: 100%;
       margin-top: 10px;
+      border-radius: 10px;
+    }
+
+    th, td, tr {
+      border: 1px solid #880e4f; /* Warna border pink tua */
+      padding: 5px;
+      text-align: center;
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    th {
+      border: 1px solid #880e4f; /* Warna border pink tua */
+      background-color: #ad1457; /* Warna latar belakang header pink tua */
+      color: #fff; /* Warna teks putih */
+    }
+
+    .table-controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 10px;
+    }
+
+    .table-controls-left {
+      display: flex;
+      align-items: center;
+    }
+
+    .table-controls-right {
+      display: flex;
+      align-items: center;
     }
   </style>
 </head>
 <body> 
-  <input type="text" id="url" placeholder="Please enter the URL here" value="http://https://shibasalsabilla10.alwaysdata.net/getcsv2json.php">
+  <h1>Welcome!</h1>
+  <input type="text" id="url" placeholder="Please enter the URL here" value="http://nafisahika.alwaysdata.net/UTScobaulang">
   <button onclick="fetchData()">Submit</button>
 
-  <div id="table-table">
+  <div id="table-container">
     <div class="table-controls">
       <div class="table-controls-left">
         <span>Tampilkan</span>
