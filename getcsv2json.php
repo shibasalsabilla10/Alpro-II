@@ -16,7 +16,7 @@ function csvToJson($csvUrl) {
     $jsonArray = [];
 
     foreach ($csvData as $row) {
-        $jsonArrayItem = array[];
+        $jsonArrayItem = array();
         for ($i = 0; $i < count($row); $i++) {
             $jsonArrayItem[$headers[$i]] = $row[$i];
         }
