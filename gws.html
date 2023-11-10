@@ -134,23 +134,21 @@
   </div>
 
   <script>
-    let currentPage = 1;
-    const itemsPerPage = 50;
-
     async function fetchData(page) {
       const urlInput = document.getElementById('url').value;
       const tableContainer = document.getElementById('table-container');
       const dataTable = document.getElementById('data-table');
       const paginationContainer = document.getElementById('pagination-container');
-
+    
       const searchInput = document.getElementById('search').value;
-
+    
       try {
+        // Fetch data from the server
         const response = await fetch(urlInput);
         const data = await response.json();
-
+    
         dataTable.innerHTML = '';
-
+    
         // Filter data based on search input
         const filteredData = data.filter(item => {
           for (const key in item) {
@@ -160,13 +158,13 @@
           }
           return false;
         });
-
+    
         const totalItems = filteredData.length;
-
+    
         const startIdx = (page - 1) * itemsPerPage;
         const endIdx = startIdx + itemsPerPage;
         const displayedData = filteredData.slice(startIdx, endIdx);
-
+    
         const headerRow = document.createElement('tr');
         for (const key in displayedData[0]) {
           if (displayedData[0].hasOwnProperty(key)) {
@@ -176,7 +174,7 @@
           }
         }
         dataTable.appendChild(headerRow);
-
+    
         displayedData.forEach(function(item) {
           const dataRow = document.createElement('tr');
           for (const key in item) {
@@ -188,9 +186,9 @@
           }
           dataTable.appendChild(dataRow);
         });
-
+    
         tableContainer.style.display = 'block';
-
+    
         // Update pagination
         paginationContainer.innerHTML = '';
         const totalPages = Math.ceil(totalItems / itemsPerPage);
@@ -210,39 +208,11 @@
         console.error(error);
       }
     }
+    
+    // Initial fetch when the page loads
+    fetchData(currentPage);
 
-    function searchData() {
-      fetchData(currentPage); // Re-fetch data with the current page to apply the search term
-    }
-
-    function submitData() {
-        const id = document.getElementById('id').value;
-        const F_name = document.getElementById('F_name').value;
-        const L_name = document.getElementById('L_name').value;
-        const email = document.getElementById('email').value;
-        const email2 = document.getElementById('email2').value;
-        const profesi = document.getElementById('profesi').value;
-
-        const xhr = new XMLHttpRequest();
-        xhr.onload = function () {
-            if (xhr.status === 200) {
-                console.log(xhr.responseText); // For testing
-            } else {
-                console.error('Error:', xhr.status, xhr.statusText);
-            }
-        };
-
-        const formData = new FormData();
-        formData.append('id', id);
-        formData.append('F_name', F_name);
-        formData.append('L_name', L_name);
-        formData.append('email', email);
-        formData.append('email2', email2);
-        formData.append('profesi', profesi);
-
-        xhr.open('POST', 'praktikumM9_submitfix.php', true);
-        xhr.send(formData);
-    }
+    
   </script>
 </body>
 </html>
