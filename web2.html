@@ -9,7 +9,7 @@
     body {
       font-family: Montserrat, sans-serif;
       font-size: 12px;
-      background-color: #eac696;
+      background-color: #f8bbd0; /* Warna latar belakang pink */
       text-align: center;
     }
 
@@ -17,7 +17,7 @@
       text-align: center;
       font-weight: 800;
       font-size: 300%;
-      color: #3f2305;
+      color: #880e4f; /* Warna teks pink tua */
     }
 
     label {
@@ -30,10 +30,10 @@
       padding: 10px;
       margin: 10px auto;
       display: block;
-      background-color: #F9E0BB;
-      color: #3f2305 ;
+      background-color: #f48fb1; /* Warna latar belakang input pink muda */
+      color: #880e4f ; /* Warna teks pink tua */
       border-radius: 10px;
-      border: 3px solid #65451f;
+      border: 3px solid #ad1457; /* Warna border pink tua */
     }
 
     button {
@@ -42,7 +42,7 @@
       display: block;
       margin: 0 auto;
       padding: 10px 20px;
-      background-color: #65451f;
+      background-color: #ad1457; /* Warna latar belakang tombol pink tua */
       color: #fff;
       border: none;
       cursor: pointer;
@@ -50,7 +50,7 @@
     }
 
     button:hover {
-      background-color: #3f2305;
+      background-color: #880e4f; /* Warna latar belakang tombol hover pink tua */
     }
 
     #table-container {
@@ -59,13 +59,13 @@
 
     table {
       font-family: montserrat, sans-serif;
-      width: 100% auto;
+      width: 100%;
       margin-top: 10px;
       border-radius: 10px;
     }
 
     th, td, tr {
-      border: 1px solid #3f2305;
+      border: 1px solid #880e4f; /* Warna border pink tua */
       padding: 5px;
       text-align: center;
       border-radius: 2px;
@@ -73,9 +73,9 @@
     }
 
     th {
-      border: 1px solid #3f2305;
-      background-color: #65451f;
-      color: #f9e0bb;
+      border: 1px solid #880e4f; /* Warna border pink tua */
+      background-color: #ad1457; /* Warna latar belakang header pink tua */
+      color: #fff; /* Warna teks putih */
     }
 
     .table-controls {
@@ -101,7 +101,7 @@
   <input type="text" id="url" placeholder="Please enter the URL here" value="http://nafisahika.alwaysdata.net/UTScobaulang">
   <button onclick="fetchData()">Submit</button>
 
-  <div id="table-table">
+  <div id="table-container">
     <div class="table-controls">
       <div class="table-controls-left">
         <span>Tampilkan</span>
@@ -126,7 +126,6 @@
     <span id="pagination-info" style="display: inline-block; margin: 0 auto;"></span>
     <button id="pagination-next" onclick="changePage(1);" style="float: right;">Selanjutnya</button>    
   </div>
-  
   <script> //bagian script itu buat javascript, kalau dipisah filenya, tinggal sambungin ke link aja
     function fetchData() {
       const urlInput = document.getElementById('url').value; // Variabel untuk URL yang diisi
