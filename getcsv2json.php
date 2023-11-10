@@ -26,7 +26,7 @@ function csvToJson($csvUrl) {
     return json_encode($jsonArray);
 }
 
-$csvUrl = 'https://shibasalsabilla10.alwaysdata.net/api/datapribadi.csv';
+$csvUrl = 'https://shibasalsabilla10.alwaysdata.net/datapribadi.csv';
 $jsonData = csvToJson($csvUrl);
 
 // Set the content type to JSON
