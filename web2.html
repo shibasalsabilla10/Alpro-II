@@ -94,11 +94,49 @@
       display: flex;
       align-items: center;
     }
+
   </style>
 </head>
 <body> 
   <input type="text" id="url" placeholder="Please enter the URL here" value="https://shibasalsabilla10.alwaysdata.net/getcsv2json.php">
   <button onclick="fetchData()">Submit</button>
+
+  <form id="addForm" onsubmit="addData(event)">
+    <label for="id">Id:</label>
+    <input type="text" id="id" name="id" required><br>
+    
+    <label for="F_Name">First Name:</label>
+    <input type="text" id="F_Name" name="F_Name" required><br>
+    
+    <label for="L_Name">Last Name:</label>
+    <input type="text" id="L_Name" name="L_Name" required><br>
+    
+    <label for="Email">Email:</label>
+    <input type="email" id="Email" name="Email" required><br>
+    
+    <label for="Email2">Confirm Email:</label>
+    <input type="email" id="Email2" name="Email2" required><br>
+    
+    <label for="Profesi">Profesi:</label>
+    <input type="text" id="Profesi" name="Profesi" required><br>
+    
+    <button type="submit">Add Data</button>
+  </form>
+
+  <input type="text" id="url" placeholder="Please enter the URL here" value="https://shibasalsabilla10.alwaysdata.net/getcsv2json.php">
+  <button onclick="fetchData()">Submit</button>
+
+  <div id="table-container">
+    <div class="table-controls">
+      <!-- ... (kode kontrol tabel tetap sama) -->
+    </div>
+  
+    <table id="data-table"></table>
+  </div>
+  
+  <div id="pagination">
+    <!-- ... (kode paginasi tetap sama) -->
+  </div>
 
   <div id="table-container">
     <div class="table-controls">
@@ -116,7 +154,6 @@
         <input type="text" id="search-input" onkeyup="searchTable()" />
       </div>
     </div>
-  
     <table id="data-table"></table>
   </div>
   
@@ -275,6 +312,32 @@
     displayTableData();
     updatePagination();
   }
+
+  function addData(event) {
+      event.preventDefault();
+
+      // Ambil nilai dari formulir
+      const id = document.getElementById('id').value;
+      const F_Name = document.getElementById('F_Name').value;
+      const L_Name = document.getElementById('L_Name').value;
+      const Email = document.getElementById('Email').value;
+      const Email2 = document.getElementById('Email2').value;
+      const Profesi = document.getElementById('Profesi').value;
+
+      // Kirim data menggunakan metode POST
+      const xhr = new XMLHttpRequest();
+      xhr.open('POST', 'url_add_data.php', true);
+      xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+          // Panggil kembali fetch data setelah menambahkan data
+          fetchData();
+        }
+      };
+      // Format data dalam format x-www-form-urlencoded
+      const data = `id=${id}&F_Name=${F_Name}&L_Name=${L_Name}&Email=${Email}&Email2=${Email2}&Profesi=${Profesi}`;
+      xhr.send(data);
+    }
   </script>
 </body>
 </html>
